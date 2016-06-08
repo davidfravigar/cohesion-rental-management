@@ -24,7 +24,7 @@
  * The Class
  * -------------------------------------------------------------------------------------------------
  */
-class Co_PropertyPostType
+class CORM_PropertyPostType
 {
 	/**
 	 * -----------------------------------------------------------------------------------------------
@@ -59,7 +59,7 @@ class Co_PropertyPostType
 			'description'		=> 'Property Post Type',
 			'type'					=> 'post',
 			'public'				=> true,
-			'show_in_admin'	=> true,
+			'show_in_admin'	=> false,
 		);
 	}//end create
 

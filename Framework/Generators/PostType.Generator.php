@@ -22,7 +22,7 @@
  * The class
  * -----------------------------------------------------------------------------
  */
-class Co_CustomPostTypeGenerator
+class CORM_CustomPostTypeGenerator
 {
 	/**
 	 * ---------------------------------------------------------------------------
@@ -48,13 +48,13 @@ class Co_CustomPostTypeGenerator
 	public function init($params)
 	{
 		if(is_array($params['name'])) {
-			$this->name = Co_GeneralHelpers::ugliyString($params['name'][0], 'param');
-			$this->title = Co_GeneralHelpers::handsomeString($params['name'][0]);
-			$this->plural = Co_GeneralHelpers::handsomeString($params['name'][1]);
+			$this->name = CORM_GeneralHelpers::ugliyString($params['name'][0], 'param');
+			$this->title = CORM_GeneralHelpers::handsomeString($params['name'][0]);
+			$this->plural = CORM_GeneralHelpers::handsomeString($params['name'][1]);
 		} else {
-			$this->name = Co_GeneralHelpers::ugliyString($params['name'], 'param');
-			$this->title = Co_GeneralHelpers::handsomeString($params['name']);
-			$this->plural = Co_GeneralHelpers::puralise(Co_GeneralHelpers::handsomeString($params['name']));
+			$this->name = CORM_GeneralHelpers::ugliyString($params['name'], 'param');
+			$this->title = CORM_GeneralHelpers::handsomeString($params['name']);
+			$this->plural = CORM_GeneralHelpers::puralise(CORM_GeneralHelpers::handsomeString($params['name']));
 		}
 
 		if (!post_type_exists($this->name)) {
@@ -110,11 +110,11 @@ class Co_CustomPostTypeGenerator
 			'rewrite'								=> array('slug' => $this->name)
 		);
 
-		if(Co_GeneralHelpers::inArray('description', $params)) {
+		if(CORM_GeneralHelpers::inArray('description', $params)) {
 			$this->args['description'] = __($params['description'], 'cohesion');
 		}
 
-		if(Co_GeneralHelpers::inArray('supports', $params)) {
+		if(CORM_GeneralHelpers::inArray('supports', $params)) {
 			$this->args['supports'] = $params['supports'];
 		} else {
 			$this->args['supports'] = array(
@@ -130,7 +130,7 @@ class Co_CustomPostTypeGenerator
 			);
 		}
 
-		if(Co_GeneralHelpers::inArray('taxonomies', $params)) {
+		if(CORM_GeneralHelpers::inArray('taxonomies', $params)) {
 			$this->args['taxonomies'] = $params['taxonomies'];
 		}
 
